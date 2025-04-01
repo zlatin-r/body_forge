@@ -1,0 +1,26 @@
+{% load static %}
+
+<div class="nav-bar">
+    <div class="nav-container">
+        <div class="logo">
+            <img src="{% static 'images/logo.jpeg' %}" alt="logo">
+        </div>
+        {% if user.is_authenticated %}
+
+            <div class="profile-pic">
+                <a href="#" class="profile-link">
+                    {% if user.profile.profile_picture %}
+                        <img src="{{ user.profile.profile_picture.url }}" alt="Profile Picture" class="nav-profile-pic">
+                    {% else %}
+                        <img src="{{ MEDIA_URL }}profile_pictures/default-profile-image.webp"
+                             alt="Default Profile Picture"
+                             class="nav-profile-pic">
+                    {% endif %}
+                </a>
+            </div>
+
+        {% else %}
+            <a href="#" class="btn btn-primary" id="login-btn">Login</a>
+        {% endif %}
+    </div>
+</div>
