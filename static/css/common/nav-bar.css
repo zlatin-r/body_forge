@@ -1,17 +1,16 @@
+.nav-bar {
+    background-color: #3f0d12;
+    color: #f1f0cc;
+    padding: 60px 20px;
+}
 .nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 10px 20px;
+
 }
 
-.logo img {
-    width: 80px;
-    border-radius: 50%;
+.buttons-container a {
+    font-size: 26px;
+    margin: 15px;
 }
-
-.login-btn,
-.register-btn {
-    width: 100px;
-}
-
