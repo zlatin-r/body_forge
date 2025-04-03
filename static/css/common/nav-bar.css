@@ -10,3 +10,8 @@
     border-radius: 50%;
 }
 
+.login-btn,
+.register-btn {
+    width: 100px;
+}
+

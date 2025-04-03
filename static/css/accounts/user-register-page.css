@@ -1,0 +1,17 @@
+.register-page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+}

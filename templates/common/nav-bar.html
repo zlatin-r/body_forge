@@ -10,7 +10,9 @@
             <div class="profile-pic">
                 <a href="#" class="profile-link">
                     {% if user.profile.profile_picture %}
-                        <img src="{{ user.profile.profile_picture.url }}" alt="Profile Picture" class="nav-profile-pic">
+                        <img src="{{ user.profile.profile_picture.url }}"
+                             alt="Profile Picture"
+                             class="nav-profile-pic">
                     {% else %}
                         <img src="{{ MEDIA_URL }}profile_pictures/default-profile-image.webp"
                              alt="Default Profile Picture"
@@ -20,7 +22,10 @@
             </div>
 
         {% else %}
-            <a href="#" class="btn btn-primary" id="login-btn">Login</a>
+            <div class="buttons-container">
+                <a href="#" class="btn btn-primary login-btn">Login</a>
+                <a href="{% url 'register' %}" class="btn btn-primary register-btn">Register</a>
+            </div>
         {% endif %}
     </div>
 </div>
