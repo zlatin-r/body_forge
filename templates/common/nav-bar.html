@@ -2,8 +2,12 @@
 
 <div class="nav-bar">
     <div class="nav-container">
+
         <div class="logo">
-            <img src="{% static 'images/logo.jpeg' %}" alt="logo">
+            <a href="{% url 'index' %}">
+                <img src="{% static 'images/logo.jpeg' %}" alt="logo">
+            </a>
+
         </div>
         {% if user.is_authenticated %}
 
