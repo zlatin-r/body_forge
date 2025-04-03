@@ -45,10 +45,15 @@
     background-color: #e0f7fa;
 }
 
+.field input:focus {
+    background-color: white;
+}
+
 .login-btn {
     background-color: #d5bf86;
     border-radius: 10px;
     font-size: 22px;
+    margin-top: 10px;
     padding: 15px;
     width: 150px;
     transition: border-color 0.3s ease;
@@ -58,4 +63,8 @@
     background-color: #2ecc71; /* Green background on hover */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
     transform: translateY(-2px); /* Slight lift effect */
+}
+
+.register-link:hover {
+    color: #3757d3;
 }
