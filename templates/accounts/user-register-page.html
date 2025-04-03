@@ -1,4 +1,5 @@
 {% extends 'common/base.html' %}
+{% load placeholder_filter %}
 {% load static %}
 
 {% block title %}Register User{% endblock %}
@@ -7,29 +8,32 @@
     <div class="register-page-container">
         <div class="register-form-container">
 
-            <div class="mb-3">
+            <form method="post" class="register-form">
+                <h1>Register</h1>
 
-                <form method="post">
-                    {% csrf_token %}
+                {% csrf_token %}
 
-                    <label for="{{ form.email.id_for_label }}" class="form-label">Email</label>
-                    <input type="email" name="{{ form.email.name }}" id="{{ form.email.id_for_label }}"
-                           class="form-control" value="{{ form.email.value|default:'' }}">
+                <div class="field">
+                    <h4 class="field-title">Email</h4>
+                    {{ form.email|placeholder:"Email" }}
+                    {{ form.email.errors }}
+                </div>
 
-                    <label for="{{ form.password1.id_for_label }}" class="form-label">Password</label>
-                    <input type="password" name="{{ form.password1.name }}" id="{{ form.password1.id_for_label }}"
-                           class="form-control">
-                    <div class="text-danger">{{ form.password1.errors }}</div>
+                <div class="field">
+                    <h4 class="field-title">Password:</h4>
+                    {{ form.password1|placeholder:"Enter new password" }}
+                    {{ form.password1.errors }}
+                </div>
 
-                    <label for="{{ form.password2.id_for_label }}" class="form-label">Confirm Password</label>
-                    <input type="password" name="{{ form.password2.name }}" id="{{ form.password2.id_for_label }}"
-                           class="form-control">
-                    <div class="text-danger">{{ form.password2.errors }}</div>
+                <div class="field">
+                    <h4 class="field-title">Confirm Password:</h4>
+                    {{ form.password2|placeholder:"Confirm password" }}
+                    {{ form.password2.errors }}
+                </div>
 
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
+                <button type="submit" class="register-form-btn">Submit</button>
+            </form>
 
-            </div>
         </div>
     </div>
 {% endblock %}
