@@ -11,6 +11,10 @@ from body_forge.accounts.models import Profile
 UserModel = get_user_model()
 
 
+class AppUserLoginView(LoginView):
+    template_name = "accounts/user-login-page.html"
+
+
 class AppUserRegisterView(CreateView):
     model = UserModel
     form_class = AppUserCreationForm
@@ -21,10 +25,6 @@ class AppUserRegisterView(CreateView):
         response = super().form_valid(form)
         login(self.request, self.object)
         return response
-
-class AppUserLoginView(LoginView):
-    template_name = "accounts/user-login-page.html"
-
 
 # class ProfileDetailsView(LoginRequiredMixin, DetailView):
 #     model = UserModel
