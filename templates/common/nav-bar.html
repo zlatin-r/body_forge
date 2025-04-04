@@ -11,14 +11,23 @@
         <div class="profile-menu-container">
             {% if user.is_authenticated %}
 
-                <div class="profile-pic-container">
-                    <a href="#">
+                <a href="#" class="profile-link">
+                    <img src="
                         {% if user.profile.profile_picture %}
-                            {{ user.profile.profile_picture }}
+                            {{ user.profile.profile_picture.url }}
                         {% else %}
-                            <img src="{% static 'images/default-profile-pic/default-profile-image2.jpeg' %}" alt="">
-                        {% endif %}
-                    </a>
+                            {% static 'images/default-profile-pic/default-profile-image2.jpeg' %}
+                        {% endif %}"
+                         alt="{{ user.profile.username|default:user.email }}'s profile"
+                         class="profile-pic">
+                </a>
+
+                <div class="dropdown-content">
+                    <a href="#">View Profile</a>
+                    <form method="post" class="dropdown-logout-form" action="{% url 'logout' %}">
+                        {% csrf_token %}
+                        <button type="submit" class="logout-btn">Logout</button>
+                    </form>
                 </div>
 
             {% else %}
@@ -32,3 +41,5 @@
         </div>
     </div>
 </div>
+
+<script src="{% static "/js/nav-bar/profile-dropdown-menu.js" %}"></script>

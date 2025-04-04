@@ -26,7 +26,59 @@
     transform: translateY(-2px);
 }
 
-.profile-pic-container a img {
-    max-width: 50px;
+/* Profile picture */
+.profile-pic {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
     border-radius: 50%;
+    border: 2px solid #4CAF50;
+    transition: transform 0.3s ease;
+    cursor: pointer;
 }
+
+.profile-pic:hover {
+    transform: scale(1.1);
+}
+
+/* Dropdown menu */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 80px; /* Adjusted for better positioning */
+    background: #f1f0cc;
+    border-radius: 8px;
+    min-width: 180px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.dropdown-content.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.dropdown-content a,
+.dropdown-content .logout-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+    transition: background 0.2s ease-in-out;
+    border: none;
+    background: transparent;
+    text-align: center;
+    font-size: 16px;
+}
+
+.dropdown-content a:hover,
+.dropdown-content .logout-btn:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
