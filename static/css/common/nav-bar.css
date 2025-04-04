@@ -25,3 +25,8 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     transform: translateY(-2px);
 }
+
+.profile-pic-container a img {
+    max-width: 50px;
+    border-radius: 50%;
+}

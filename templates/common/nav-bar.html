@@ -7,31 +7,28 @@
             <a href="{% url 'index' %}">
                 <p>LOGO</p>
             </a>
-
         </div>
-        {% if user.is_authenticated %}
+        <div class="profile-menu-container">
+            {% if user.is_authenticated %}
 
-            <div class="profile-pic">
-                <a href="#" class="profile-link">
-                    {% if user.profile.profile_picture %}
-                        <img src="{{ user.profile.profile_picture.url }}"
-                             alt="Profile Picture"
-                             class="nav-profile-pic">
-                    {% else %}
-                        <img src="{{ MEDIA_URL }}profile_pictures/default-profile-image.webp"
-                             alt="Default Profile Picture"
-                             class="nav-profile-pic">
-                    {% endif %}
-                </a>
-            </div>
+                <div class="profile-pic-container">
+                    <a href="#">
+                        {% if user.profile.profile_picture %}
+                            {{ user.profile.profile_picture }}
+                        {% else %}
+                            <img src="{% static 'images/default-profile-pic/default-profile-image2.jpeg' %}" alt="">
+                        {% endif %}
+                    </a>
+                </div>
 
-        {% else %}
-            <div class="buttons-container">
-                <a href="#" class="nav-btn">Home</a>
-                <a href="#" class="nav-btn">About</a>
-                <a href="#" class="nav-btn">Contact Us</a>
-                <a href="{% url 'login' %}" class="nav-btn">Login</a>
-            </div>
-        {% endif %}
+            {% else %}
+                <div class="buttons-container">
+                    <a href="#" class="nav-btn">Home</a>
+                    <a href="#" class="nav-btn">About</a>
+                    <a href="#" class="nav-btn">Contact Us</a>
+                    <a href="{% url 'login' %}" class="nav-btn">Login</a>
+                </div>
+            {% endif %}
+        </div>
     </div>
 </div>
