@@ -23,7 +23,7 @@
                 </a>
 
                 <div class="dropdown-content">
-                    <a href="#">View Profile</a>
+                    <a href="{% url 'details' pk=user.pk %}">View Profile</a>
                     <form method="post" class="dropdown-logout-form" action="{% url 'logout' %}">
                         {% csrf_token %}
                         <button type="submit" class="logout-btn">Logout</button>
