@@ -159,15 +159,27 @@
     padding: 0;
 }
 
-.delete-confirmation-box {
+.delete-box-wrapper {
     display: none;
+    position: fixed; /* Fixed for full-screen center */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+}
+
+.delete-box-wrapper.active {
+    display: flex;
+}
+
+.delete-confirmation-box {
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 30px;
     padding: 50px;
     width: 450px;
-    position: absolute;
     background-color: #f1f0cc;
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -201,6 +213,30 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transform: translateY(-2px);
     background-color: #b90c0c;
+}
+
+.background-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* Dims background */
+    backdrop-filter: blur(2px); /* Optional blur effect */
+    z-index: 10; /* Below the delete box */
+}
+
+.background-overlay.active {
+    display: block;
+}
+
+.delete-link {
+    color: #6a83e1;
+}
+
+.delete-link:hover {
+    color: #b90c0c;
 }
 
 /* Responsive adjustments */
