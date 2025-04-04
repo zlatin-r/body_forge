@@ -3,7 +3,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.views import LoginView
 from django.shortcuts import get_object_or_404
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, DetailView, UpdateView
+from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
 
 from body_forge.accounts.forms import AppUserCreationForm, ProfileEditForm
 from body_forge.accounts.models import Profile
@@ -26,6 +26,7 @@ class AppUserRegisterView(CreateView):
         login(self.request, self.object)
         return response
 
+
 class ProfileDetailsView(LoginRequiredMixin, DetailView):
     model = UserModel
     template_name = "accounts/profile-details-page.html"
@@ -44,3 +45,11 @@ class ProfileEditView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         return reverse_lazy("details", kwargs={"pk": self.object.pk})
 
 
+class ProfileDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = Profile
+    template_name = "accounts/profile-delete-page.html"
+    success_url = reverse_lazy("index")
+
+    def test_func(self):
+        profile = get_object_or_404(Profile, pk=self.kwargs["pk"])
+        return self.request.user == profile.user

@@ -37,8 +37,19 @@
 
                 <button class="save-btn" type="submit">Save</button>
             </form>
+            <p>To delete the account <a href="#" class="delete-link">Click here</a></p>
+        </div>
+        <div class="delete-confirmation-box">
+            <p>Do you really want to delete your profile?</p>
+            <div class="choice-btn-box">
+                <a href="{% url 'delete' pk=user.pk %}" class="yes-btn">Yes</a>
+                <a href="#" class="no-btn">No</a>
+            </div>
         </div>
     </div>
 
+
+
     <script src="{% static 'js/accounts/profile-pic-change.js' %}"></script>
+    <script src="{% static 'js/accounts/delete-account-confirmation.js' %}"></script>
 {% endblock %}

@@ -10,5 +10,6 @@ urlpatterns = [
     path('profile/<int:pk>/', include([
         path('', views.ProfileDetailsView.as_view(), name="details"),
         path('edit/', views.ProfileEditView.as_view(), name="edit"),
+        path('delete/', views.ProfileDeleteView.as_view(), name="delete")
     ]))
 ]
