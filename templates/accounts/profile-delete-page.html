@@ -4,16 +4,17 @@
 {% block title %}Delete Profile{% endblock %}
 
 {% block content %}
-
     <div class="delete-box-wrapper">
         <div class="delete-confirmation-box">
-            <p>Do you really want to delete your profile?</p>
-            <div class="choice-btn-box">
-                <a href="{% url 'delete' pk=user.pk %}" class="yes-btn">Yes</a>
-                <a href="#" class="no-btn">No</a>
-            </div>
+            <h2>Confirm Account Deletion</h2>
+            <p class="warning-message">⚠️ Warning: This action cannot be undone!</p>
+            <p>All your data will be permanently deleted.</p>
+
+            <form method="post" action="{% url 'delete' pk=user.pk %}" class="choice-btn-box">
+                {% csrf_token %}
+                <button type="submit" class="yes-btn">Yes, Delete My Account</button>
+                <a href="{% url 'edit' pk=user.pk %}" class="no-btn">Cancel</a>
+            </form>
         </div>
     </div>
-
-    <script src="{% static 'js/accounts/delete-account-confirmation.js' %}"></script>
 {% endblock %}

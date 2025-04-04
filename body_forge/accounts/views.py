@@ -48,6 +48,7 @@ class ProfileEditView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
 class ProfileDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Profile
+    template_name = "accounts/profile-delete-page.html"
     success_url = reverse_lazy("index")
 
     def test_func(self):

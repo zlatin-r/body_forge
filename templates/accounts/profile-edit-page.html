@@ -37,10 +37,8 @@
 
                 <button class="save-btn" type="submit">Save</button>
             </form>
-            <p>To delete the account <a href="#" class="delete-link">Click here</a></p>
+            <p>To delete the account <a href="{% url 'delete' pk=user.pk %}" class="delete-link">Click here</a></p>
         </div>
-
-
     </div>
 
     <script src="{% static 'js/accounts/profile-pic-change.js' %}"></script>
