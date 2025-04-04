@@ -1,0 +1,44 @@
+{% extends 'common/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="profile-edit-container">
+        <div class="profile-card">
+            <h1>Profile Edit</h1>
+
+            <form method="post" class="profile-edit-form-box" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="profile-image-container">
+
+                    <div class="profile-image">
+                        {% if object.profile_picture %}
+                            <img id="profile-picture-preview" src="{{ object.profile_picture.url }}"
+                                 alt="{{ object.username }}'s profile picture">
+                        {% else %}
+                            <img id="profile-picture-preview"
+                                 src="{% static 'images/default-profile-pic/default-profile-image2.jpeg' %}"
+                                 alt="{{ object.username }}'s profile picture">
+                        {% endif %}
+                    </div>
+                    <label for="id_profile_picture" class="change-picture-btn">Change Profile Picture</label>
+                    {{ form.profile_picture }}
+                </div>
+
+                {% for field in form %}
+                    {% if field.name != 'profile_picture' %}
+                        <p class="error">{{ field.errors }}</p>
+                        <div class="label-input">
+                            <label>{{ field.label }}</label>
+                            {{ field }}
+                        </div>
+                        <br>
+                    {% endif %}
+                {% endfor %}
+
+                <button class="save-btn" type="submit">Save</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="{% static 'js/accounts/profile-pic-change.js' %}"></script>
+{% endblock %}

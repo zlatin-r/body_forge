@@ -1,0 +1,175 @@
+/* Base container styles */
+.profile-edit-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+/* Profile card container */
+.profile-card {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 3rem;
+    background: white;
+    margin: 2rem 0;
+}
+
+.profile-card h1 {
+    color: #333;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* Form styling */
+.profile-edit-form-box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.label-input {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.label-input label {
+    font-weight: 500;
+    color: #555;
+    font-size: 1.1rem;
+}
+
+.label-input input,
+.label-input textarea,
+.label-input select {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.label-input input:focus,
+.label-input textarea:focus,
+.label-input select:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+}
+
+/* Button styling */
+.save-btn {
+    background: #4CAF50;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    margin-top: 1rem;
+    width: 100%;
+    max-width: 200px;
+    align-self: center;
+}
+
+.edit-btn:hover {
+    background-color: #45a049;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.edit-btn:active {
+    background-color: #3e8e41;
+    transform: translateY(1px);
+}
+
+/* Profile image container */
+.profile-image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    gap: 1rem;
+}
+
+/* Hide the default file input */
+.profile-image-container input[type="file"] {
+    display: none;
+}
+
+/* Style the change picture button */
+.change-picture-btn {
+    background: #f5f5f5;
+    color: #333;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.change-picture-btn:hover {
+    background-color: #e9e9e9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Preview when new image is selected */
+.profile-image {
+    position: relative;
+}
+
+.change-picture-btn {
+    background: #4CAF50;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.change-picture-btn:hover {
+    background: #45a049;
+}
+
+/* Error message styling */
+.error {
+    color: #e74c3c;
+    font-size: 0.9rem;
+    margin: 0;
+    padding: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .profile-card {
+        padding: 2rem 1.5rem;
+        max-width: 95%;
+    }
+
+    .label-input {
+        flex-direction: column;
+    }
+
+    .edit-btn {
+        max-width: 100%;
+    }
+}

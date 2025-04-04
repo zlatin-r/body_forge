@@ -41,4 +41,6 @@ class ProfileEditView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         return self.request.user == profile.user
 
     def get_success_url(self):
-        return reverse_lazy("profile-details", kwargs={"pk": self.object.pk})
+        return reverse_lazy("details", kwargs={"pk": self.object.pk})
+
+
