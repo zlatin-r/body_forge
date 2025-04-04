@@ -26,7 +26,6 @@
     transform: translateY(-2px);
 }
 
-/* Profile picture */
 .profile-pic {
     width: 50px;
     height: 50px;
@@ -41,12 +40,11 @@
     transform: scale(1.1);
 }
 
-/* Dropdown menu */
 .dropdown-content {
     display: none;
     position: absolute;
     right: 0;
-    top: 80px; /* Adjusted for better positioning */
+    top: 80px;
     background: #f1f0cc;
     border-radius: 8px;
     min-width: 180px;
@@ -81,4 +79,3 @@
 .dropdown-content .logout-btn:hover {
     background: rgba(0, 0, 0, 0.05);
 }
-
