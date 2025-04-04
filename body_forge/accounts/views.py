@@ -53,7 +53,3 @@ class ProfileDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     def test_func(self):
         profile = get_object_or_404(Profile, pk=self.kwargs["pk"])
         return self.request.user == profile.user
-
-    def get(self, request, *args, **kwargs):
-        # Block GET requests — we only want to allow POST
-        return HttpResponseNotAllowed(['POST'])

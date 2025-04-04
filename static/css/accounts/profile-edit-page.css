@@ -215,22 +215,6 @@
     background-color: #b90c0c;
 }
 
-.background-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5); /* Dims background */
-    backdrop-filter: blur(2px); /* Optional blur effect */
-    z-index: 10; /* Below the delete box */
-}
-
-.background-overlay.active {
-    display: block;
-}
-
 .delete-link {
     color: #6a83e1;
 }
