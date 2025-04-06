@@ -32,6 +32,8 @@ USER_APPS = [
     'body_forge.accounts',
     'body_forge.common',
     'body_forge.workouts',
+    'body_forge.exercises',
+    'body_forge.goals',
 ]
 
 INSTALLED_APPS = [
