@@ -28,3 +28,10 @@
     justify-content: center;
     align-items: center;
 }
+
+.new-muscle-group-btn {
+    padding: 10px 25px;
+    border-radius: 5px;
+    color: white;
+    background-color: #4ac1f7;
+}
