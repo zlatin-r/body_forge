@@ -16,13 +16,20 @@
                     </div>
                     <br>
                 {% endfor %}
+                <h4>Your exercises:</h4>
                 <div class="available-exercises">
-                    <ul class="exercises-list">
+                    {% if not all_exercises %}
+                        <p>You have no exercises yet</p>
+                    {% else %}
+                        <ul class="exercises-list">
                         {% for exercise in all_exercises %}
                             <li>exercise.name</li>
                         {% endfor %}
+                    {% endif %}
                     </ul>
                 </div>
+
+                <a href="#" class="new-exercise-btn">Create New Exercise</a>
 
                 <button class="save-btn" type="submit">Create</button>
             </form>
