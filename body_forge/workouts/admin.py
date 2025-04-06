@@ -1,31 +1,36 @@
 from django.contrib import admin
-from django.contrib.auth import get_user_model
-from django.contrib.auth.admin import UserAdmin
 
-from body_forge.accounts.forms import AppUserCreationForm, AppUserChangeForm
-
-UserModel = get_user_model()
+from body_forge.workouts.models import Workout, WorkoutExercise, ExerciseSet
 
 
-@admin.register(UserModel)
-class AppUserAdmin(UserAdmin):
-    model = UserModel
-    add_form = AppUserCreationForm
-    form = AppUserChangeForm
-
-    list_display = ("pk", "email", "is_staff", "is_superuser")
-    search_fields = ("email",)
-    ordering = ("pk",)
-
-    fieldsets = (
-        (None, {"fields": ("email", "password")}),
-        ('Personal info', {'fields': ()}),
-        ('Permissions', {'fields': ('is_active', 'is_staff', 'groups', 'user_permissions')}),
-        ('Important dates', {'fields': ('last_login',)}),
+@admin.register(Workout)
+class WorkoutAdmin(admin.ModelAdmin):
+    list_display = (
+        "workout_type",
+        "date",
+        "start_time",
+        "end_time",
+        "notes",
+        "muscle_groups_trained",
+        "duration"
     )
 
-    add_fieldsets = (
-        (None, {
-            "classes": ("wide",),
-            "fields": ("email", "password1", "password2"),
-        },),)
+
+@admin.register(WorkoutExercise)
+class WorkoutExerciseAdmin(admin.ModelAdmin):
+    list_display = (
+        "exercise",
+        "order",
+        "notes"
+    )
+
+@admin.register(ExerciseSet)
+class ExerciseSetAdmin(admin.ModelAdmin):
+    list_display = (
+        "set_number",
+        "weight",
+        "reps",
+        "duration",
+        "distance",
+        "rpe",
+    )
