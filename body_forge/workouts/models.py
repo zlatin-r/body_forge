@@ -1,5 +1,3 @@
-import datetime
-
 from django.contrib.auth import get_user_model
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
@@ -21,10 +19,7 @@ class Workout(models.Model):
         choices=WorkoutTypes
     )
     date = models.DateField(
-    )
-    start_time = models.TimeField(
-    )
-    end_time = models.TimeField(
+        auto_now_add=True
     )
     notes = models.TextField(
         blank=True
@@ -34,19 +29,12 @@ class Workout(models.Model):
         blank=True
     )
 
-    @property
-    def duration(self):
-        if self.start_time and self.end_time:
-            start_dt = datetime.datetime.combine(self.date, self.start_time)
-            end_dt = datetime.datetime.combine(self.date, self.end_time)
-            return end_dt - start_dt
-        return None
 
     def __str__(self):
         return f"{self.user.username}'s workout on {self.date}"
 
     class Meta:
-        ordering = ['-date', '-start_time']
+        ordering = ['-date']
 
 
 class WorkoutExercise(models.Model):

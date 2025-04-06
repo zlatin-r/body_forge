@@ -8,10 +8,7 @@ class WorkoutAdmin(admin.ModelAdmin):
     list_display = (
         "workout_type",
         "date",
-        "start_time",
-        "end_time",
         "notes",
-        "duration"
     )
 
 

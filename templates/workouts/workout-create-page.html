@@ -1,0 +1,25 @@
+{% extends 'common/base.html' %}
+{% load static %}
+{% block title %}Create Workout{% endblock %}
+
+{% block content %}
+    <div class="workout-create-container">
+        <div class="form-container">
+            <form method="post" action="" class="workout-create-form">
+                {% csrf_token %}
+
+                {% for field in form %}
+
+                    <p class="error">{{ field.errors }}</p>
+                    <div class="label-input">
+                        <label>{{ field.label }}</label>
+                        {{ field }}
+                    </div>
+                    <br>
+
+                {% endfor %}
+
+            </form>
+        </div>
+    </div>
+{% endblock %}
