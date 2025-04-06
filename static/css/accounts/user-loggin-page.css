@@ -41,10 +41,6 @@
     transition: border-color 0.3s ease;
 }
 
-.field input:hover {
-    background-color: #e0f7fa;
-}
-
 .field input:focus {
     background-color: white;
 }
@@ -63,6 +59,10 @@
     background-color: #2ecc71; /* Green background on hover */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
     transform: translateY(-2px); /* Slight lift effect */
+}
+
+.register-link {
+    color: #5a74d8;
 }
 
 .register-link:hover {
