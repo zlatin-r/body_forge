@@ -1,8 +1,8 @@
-from django.contrib.auth import get_user_model, login
+from django.contrib.auth import get_user_model, login, logout
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.views import LoginView
 from django.http import HttpResponseNotAllowed
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
 
@@ -47,10 +47,17 @@ class ProfileEditView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
 
 class ProfileDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
-    model = UserModel
+    model = Profile
     template_name = "accounts/profile-delete-page.html"
     success_url = reverse_lazy("index")
 
     def test_func(self):
         profile = get_object_or_404(Profile, pk=self.kwargs["pk"])
         return self.request.user == profile.user
+
+    def post(self, request, *args, **kwargs):
+        profile = self.get_object()
+        user = profile.user
+        logout(request)
+        user.delete()
+        return redirect(self.success_url)
