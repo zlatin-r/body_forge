@@ -9,16 +9,22 @@
                 {% csrf_token %}
 
                 {% for field in form %}
-
                     <p class="error">{{ field.errors }}</p>
                     <div class="label-input">
                         <label>{{ field.label }}</label>
                         {{ field }}
                     </div>
                     <br>
-
                 {% endfor %}
+                <div class="available-exercises">
+                    <ul class="exercises-list">
+                        {% for exercise in all_exercises %}
+                            <li>exercise.name</li>
+                        {% endfor %}
+                    </ul>
+                </div>
 
+                <button class="save-btn" type="submit">Create</button>
             </form>
         </div>
     </div>

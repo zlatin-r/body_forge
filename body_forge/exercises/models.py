@@ -1,6 +1,9 @@
+from django.contrib.auth import get_user_model
 from django.db import models
 
 from body_forge.exercises.exercise_type_choices import ExerciseTypes
+
+UserModel = get_user_model()
 
 
 class MuscleGroup(models.Model):
@@ -17,6 +20,11 @@ class MuscleGroup(models.Model):
 
 
 class Exercise(models.Model):
+    user = models.ForeignKey(
+        to=UserModel,
+        on_delete=models.CASCADE,
+        related_name="exercise"
+    )
     name = models.CharField(
         max_length=100,
         unique=True
@@ -44,6 +52,9 @@ class Exercise(models.Model):
         max_length=100,
         blank=True
     )
+    sets = models.PositiveIntegerField()
+    repetitions = models.PositiveIntegerField()
+    rest_time = models.PositiveIntegerField()
 
     def __str__(self):
         return self.name
