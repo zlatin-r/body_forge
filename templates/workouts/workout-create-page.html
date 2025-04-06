@@ -4,7 +4,7 @@
 
 {% block content %}
     <div class="workout-create-container">
-        <div class="form-container">
+        <div class="workout-form-container">
             <form method="post" action="" class="workout-create-form">
                 {% csrf_token %}
 
@@ -21,15 +21,15 @@
                     {% if not all_exercises %}
                         <p>You have no exercises yet</p>
                     {% else %}
-                        <ul class="exercises-list">
-                        {% for exercise in all_exercises %}
-                            <li>exercise.name</li>
-                        {% endfor %}
+                        <select name="" id="">
+                            {% for exercise in all_exercises %}
+                                {{ exercise.name }}
+                            {% endfor %}
+                        </select>
                     {% endif %}
-                    </ul>
                 </div>
 
-                <a href="#" class="new-exercise-btn">Create New Exercise</a>
+                <a href="{% url 'create-exercise' %}" class="new-exercise-btn">Create New Exercise</a>
 
                 <button class="save-btn" type="submit">Create</button>
             </form>

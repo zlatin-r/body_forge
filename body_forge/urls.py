@@ -8,6 +8,7 @@ urlpatterns = ([
     path('', include("body_forge.common.urls")),
     path('accounts/', include("body_forge.accounts.urls")),
     path('workouts/', include("body_forge.workouts.urls")),
+    path('exercises/', include("body_forge.exercises.urls")),
 ])
 
 

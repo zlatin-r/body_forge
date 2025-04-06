@@ -1,0 +1,24 @@
+{% extends 'common/base.html' %}
+{% load static %}
+{% block title %}Create Exercise{% endblock %}
+
+{% block content %}
+    <div class="exercise-create-container">
+        <div class="exercise-form-container">
+            <form method="post" action="" class="exercise-create-form">
+                {% csrf_token %}
+
+                {% for field in form %}
+                    <p class="error">{{ field.errors }}</p>
+                    <div class="label-input">
+                        <label>{{ field.label }}</label>
+                        {{ field }}
+                    </div>
+                    <br>
+                {% endfor %}
+
+                <button class="save-btn" type="submit">Create</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

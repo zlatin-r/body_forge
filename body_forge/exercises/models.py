@@ -33,13 +33,13 @@ class Exercise(models.Model):
         blank=True
     )
     primary_muscle_group = models.ForeignKey(
-        MuscleGroup,
+        to=MuscleGroup,
         on_delete=models.SET_NULL,
         null=True,
         related_name='primary_exercises'
     )
     secondary_muscle_groups = models.ManyToManyField(
-        MuscleGroup,
+        to=MuscleGroup,
         blank=True,
         related_name='secondary_exercises'
     )
