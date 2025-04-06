@@ -21,12 +21,13 @@
                     {% if not all_exercises %}
                         <p>You have no exercises yet</p>
                     {% else %}
-                        <select name="" id="">
+                        <div>
                             {% for exercise in all_exercises %}
                                 {{ exercise.name }}
                             {% endfor %}
-                        </select>
+                        </div>
                     {% endif %}
+
                 </div>
 
                 <a href="{% url 'create-exercise' %}" class="new-exercise-btn">Create New Exercise</a>

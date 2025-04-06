@@ -1,12 +1,12 @@
 {% extends 'common/base.html' %}
 {% load placeholder_filter %}
 {% load static %}
-{% block title %}Create Exercise{% endblock %}
+{% block title %}Create Muscle Group{% endblock %}
 
 {% block content %}
-    <div class="exercise-create-container">
-        <div class="exercise-form-container">
-            <form method="post" action="" class="exercise-create-form">
+    <div class="mg-create-container">
+        <div class="mg-form-container">
+            <form method="post" action="" class="mg-create-form">
                 {% csrf_token %}
 
                 {% for field in form %}
@@ -17,8 +17,6 @@
                     </div>
                     <br>
                 {% endfor %}
-
-                <a href="{% url 'create-muscle-group' %}" class="new-muscle-group-btn">Add Muscle Groups</a>
 
                 <button class="save-btn" type="submit">Create</button>
             </form>

@@ -9,8 +9,8 @@ urlpatterns = ([
     path('accounts/', include("body_forge.accounts.urls")),
     path('workouts/', include("body_forge.workouts.urls")),
     path('exercises/', include("body_forge.exercises.urls")),
+    path('muscle_groups/', include("body_forge.muscle_groups.urls")),
 ])
-
 
 urlpatterns += [
     re_path(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),

@@ -11,3 +11,7 @@ class ExerciseCreateView(LoginRequiredMixin, CreateView):
     form_class = ExerciseCreateForm
     template_name = "exercises/exercise-create-page.html"
     success_url = reverse_lazy("create-workout")
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user  # Set the user here
+        return super().form_valid(form)
