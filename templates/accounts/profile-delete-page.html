@@ -13,7 +13,7 @@
             <form method="post" action="{% url 'delete' pk=user.pk %}" class="choice-btn-box">
                 {% csrf_token %}
                 <button type="submit" class="yes-btn">Yes, Delete My Account</button>
-                <a href="{% url 'edit' pk=user.pk %}" class="no-btn">Cancel</a>
+                <a href="javascript:history.back()" class="no-btn">Cancel</a>
             </form>
         </div>
     </div>
