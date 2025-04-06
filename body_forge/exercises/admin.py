@@ -10,7 +10,6 @@ class ExerciseAdmin(admin.ModelAdmin):
         "name",
         "description",
         "primary_muscle_group",
-        "secondary_muscle_groups",
         "exercise_type",
         "equipment_needed"
     )

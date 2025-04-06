@@ -11,7 +11,6 @@ class WorkoutAdmin(admin.ModelAdmin):
         "start_time",
         "end_time",
         "notes",
-        "muscle_groups_trained",
         "duration"
     )
 
