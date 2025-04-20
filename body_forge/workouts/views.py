@@ -12,7 +12,7 @@ class WorkoutCreateView(LoginRequiredMixin, CreateView):
     model = Workout
     form_class = WorkoutCreateForm
     template_name = "workouts/workout-create-page.html"
-    success_url = reverse_lazy("index")
+    success_url = reverse_lazy("home-page")
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

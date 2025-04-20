@@ -28,10 +28,6 @@ class Workout(models.Model):
         blank=True
     )
 
-
-    def __str__(self):
-        return f"{self.user.username}'s workout on {self.date}"
-
     class Meta:
         ordering = ['-date']
 

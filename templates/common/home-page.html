@@ -18,7 +18,7 @@
                         {% if workout.exercises.exists %}
                             <ul>
                                 {% for exercise in workout.exercises.all %}
-                                    <li>{{ exercise.name }}</li>
+                                    <li>{{ exercise.name }}{{ exercise.exercise_type }}</li>
                                 {% endfor %}
                             </ul>
 
