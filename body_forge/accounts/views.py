@@ -20,7 +20,7 @@ class AppUserRegisterView(CreateView):
     model = UserModel
     form_class = AppUserCreationForm
     template_name = "accounts/user-register-page.html"
-    success_url = reverse_lazy("index")
+    success_url = reverse_lazy("home-page")
 
     def form_valid(self, form):
         response = super().form_valid(form)
@@ -49,7 +49,7 @@ class ProfileEditView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 class ProfileDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Profile
     template_name = "accounts/profile-delete-page.html"
-    success_url = reverse_lazy("index")
+    success_url = reverse_lazy("home-page")
 
     def test_func(self):
         profile = get_object_or_404(Profile, pk=self.kwargs["pk"])
