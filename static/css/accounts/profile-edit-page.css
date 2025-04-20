@@ -123,6 +123,11 @@
     background: #45a049;
 }
 
+.change-picture-btn:active {
+    background: #ffffff;
+    transform: translateY(1px);
+}
+
 /* Error message styling */
 .error {
     color: #e74c3c;
@@ -137,6 +142,32 @@
 
 .delete-link:hover {
     color: #b90c0c;
+}
+
+.profile-edit-save-btn {
+    background: #4CAF50;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    width: 100%;
+    max-width: 200px;
+    align-self: center;
+}
+
+.profile-edit-save-btn:hover {
+    background-color: #0dac3b;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.profile-edit-save-btn:active {
+    background-color: #f4f4f4;
+    transform: translateY(1px);
 }
 
 /* Responsive adjustments */

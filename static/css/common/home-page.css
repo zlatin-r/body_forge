@@ -16,3 +16,32 @@
     gap: 10px;
 
 }
+
+.workout-create-btn {
+    display: flex;
+    justify-content: center;
+    height: 45px;
+    color: black;
+    background-color: #f1f0cc;
+    border: 1px solid #ddd;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 200px;
+    align-self: center;
+}
+
+.workout-create-btn:hover {
+    background-color: #ece9b4;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.workout-create-btn:active {
+    background-color: #ddd;
+    transform: translateY(1px);
+}
