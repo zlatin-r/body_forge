@@ -1,8 +1,22 @@
 from django.shortcuts import render
 from django.views import View
+from django.views.generic import ListView
+
+from body_forge.workouts.models import Workout
 
 
-def index(request):
-    template_name = "common/dashboard.html" if request.user.is_authenticated else "common/index_not_auth.html"
+class HomePage(ListView):
+    model = Workout
+    template_name = 'common/home-page.html'
+    context_object_name = 'all_workouts'
 
-    return render(request, template_name)
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        return context
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+
+        return queryset
+

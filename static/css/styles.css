@@ -1,8 +1,7 @@
 @import "common/reset-styles.css";
 @import "common/nav-bar.css";
 @import "common/footer.css";
-@import "common/dashboard.css";
-@import "common/index-not-auth.css";
+@import "common/home-page.css";
 @import "accounts/user-register-page.css";
 @import "accounts/user-loggin-page.css";
 @import "accounts/profile-details-page.css";

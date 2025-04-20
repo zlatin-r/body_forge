@@ -1,0 +1,19 @@
+{% extends 'common/base.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <div class="main-container">
+        {% if user.is_authenticated %}
+            <div class="">
+                <p>User Is Authenticated</p>
+            </div>
+        {% else %}
+            <div class="">
+                <p>User Is Not Authenticated</p>
+            </div>
+        {% endif %}
+    </div>
+
+{% endblock %}
