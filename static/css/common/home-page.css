@@ -14,13 +14,11 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-
 }
 
 .workout-create-btn {
     display: flex;
     justify-content: center;
-    height: 45px;
     color: black;
     background-color: #f1f0cc;
     border: 1px solid #ddd;

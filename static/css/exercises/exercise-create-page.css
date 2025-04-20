@@ -28,10 +28,58 @@
     justify-content: center;
     align-items: center;
 }
-
 .new-muscle-group-btn {
-    padding: 10px 25px;
-    border-radius: 5px;
     color: white;
     background-color: #4ac1f7;
+    display: flex;
+    justify-content: center;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    width: 100%;
+    max-width: 200px;
+    align-self: center;
+}
+
+.new-muscle-group-btn:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.new-muscle-group-btn:active {
+    background-color: #ddd;
+    transform: translateY(1px);
+}
+
+.exercise-save-btn {
+    display: flex;
+    justify-content: center;
+    background: #4CAF50;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    width: 100%;
+    max-width: 200px;
+    align-self: center;
+}
+
+.exercise-save-btn:hover {
+    background-color: #45a049;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.exercise-save-btn:active {
+    background-color: #ddd;
+    transform: translateY(1px);
 }

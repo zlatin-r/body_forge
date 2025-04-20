@@ -39,10 +39,20 @@
 }
 
 .new-exercise-btn {
-    padding: 10px 25px;
-    border-radius: 5px;
     color: white;
     background-color: #4ac1f7;
+    display: flex;
+    justify-content: center;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    width: 100%;
+    max-width: 200px;
+    align-self: center;
 }
 
 .new-exercise-btn:hover {
@@ -51,7 +61,70 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.new-exercise-btn:active {
+    background-color: #ddd;
+    transform: translateY(1px);
+}
+
 .btn-box {
     display: flex;
     gap: 10px;
+    padding: 20px;
+    width: 100%;
+}
+
+.workout-save-btn {
+    display: flex;
+    justify-content: center;
+    background: #4CAF50;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    width: 100%;
+    max-width: 200px;
+    align-self: center;
+}
+
+.workout-save-btn:hover {
+    background-color: #45a049;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.workout-save-btn:active {
+    background-color: #ddd;
+    transform: translateY(1px);
+}
+
+.workout-create-back-btn {
+    display: flex;
+    justify-content: center;
+    background: #ff0000;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    width: 100%;
+    max-width: 200px;
+    align-self: center;
+}
+
+.workout-create-back-btn:hover {
+    background-color: #b90c0c;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.workout-create-back-btn:active {
+    background-color: #ddd;
+    transform: translateY(1px);
 }
