@@ -102,21 +102,6 @@
     justify-content: center;
 }
 
-.edit-btn {
-    padding: 12px 24px;
-    border-radius: 4px;
-    font-size: 16px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-align: center;
-    text-decoration: none;
-    min-width: 180px;
-    border: none;
-}
-
-
-
 @media (max-width: 768px) {
     .profile-card {
         padding: 2rem 1.5rem;
