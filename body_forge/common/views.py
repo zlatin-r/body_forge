@@ -1,5 +1,3 @@
-from django.shortcuts import render
-from django.views import View
 from django.views.generic import ListView
 
 from body_forge.workouts.models import Workout
@@ -18,5 +16,4 @@ class HomePage(ListView):
     def get_queryset(self):
         queryset = super().get_queryset()
 
-        return queryset
-
+        return queryset.prefetch_related('exercises')

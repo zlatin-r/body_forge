@@ -5,12 +5,29 @@
 
 {% block content %}
     <div class="main-container">
+        <a href="{% url 'create-workout' %}" class="workout-create-btn">Start New Workout</a>
+
         {% if user.is_authenticated %}
-            <div class="">
-                <p>User Is Authenticated</p>
+            <div class="auth-container">
+                {% if all_workouts %}
+                    <p>User Is Authenticated</p>
+
+                    {% for workout in all_workouts %}
+                        <p>{{ workout.date }}</p>
+
+                        {% if workout.exercises.exists %}
+                            <ul>
+                                {% for exercise in workout.exercises.all %}
+                                    <li>{{ exercise.name }}</li>
+                                {% endfor %}
+                            </ul>
+
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
             </div>
         {% else %}
-            <div class="">
+            <div class="not-auth-container">
                 <p>User Is Not Authenticated</p>
             </div>
         {% endif %}
