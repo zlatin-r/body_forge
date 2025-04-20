@@ -44,3 +44,18 @@
     color: white;
     background-color: #4ac1f7;
 }
+
+.new-exercise-btn:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-box {
+    display: flex;
+    gap: 10px;
+}
+
+.workout-create-back-btn {
+
+}

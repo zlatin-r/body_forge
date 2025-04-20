@@ -2,6 +2,7 @@
 @import "common/nav-bar.css";
 @import "common/footer.css";
 @import "common/home-page.css";
+@import "common/buttons.css";
 @import "accounts/user-register-page.css";
 @import "accounts/user-loggin-page.css";
 @import "accounts/profile-details-page.css";

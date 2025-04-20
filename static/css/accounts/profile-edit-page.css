@@ -70,32 +70,7 @@
 }
 
 /* Button styling */
-.save-btn {
-    background: #4CAF50;
-    color: white;
-    padding: 12px 24px;
-    border-radius: 4px;
-    font-size: 16px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border: none;
-    margin-top: 1rem;
-    width: 100%;
-    max-width: 200px;
-    align-self: center;
-}
 
-.edit-btn:hover {
-    background-color: #45a049;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transform: translateY(-2px);
-}
-
-.edit-btn:active {
-    background-color: #3e8e41;
-    transform: translateY(1px);
-}
 
 /* Profile image container */
 .profile-image-container {
