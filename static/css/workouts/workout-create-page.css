@@ -1,11 +1,23 @@
 .workout-create-container {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
     min-height: 100vh;
-    padding: 2rem;
     box-sizing: border-box;
     background-color: #d5bf86;
+    padding-top: 50px;
+}
+
+.title-container {
+    display: flex;
+    justify-content: center;
+    background-color: #d5bf86;
+    padding: 2rem;
+}
+
+.page-title {
+    font-size: 46px;
+    color: #3f0d12;
 }
 
 .workout-form-container {
@@ -29,13 +41,19 @@
     align-items: center;
 }
 
-.available-exercises {
+.available-exercises-container {
     background-color: white;
     height: 100%;
     width: 100%;
     padding: 10px;
     margin: 20px 0;
     border-radius: 5px;
+}
+
+.all-exercises-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
 .new-exercise-btn {

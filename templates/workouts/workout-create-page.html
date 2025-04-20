@@ -3,7 +3,11 @@
 {% block title %}Create Workout{% endblock %}
 
 {% block content %}
+    <div class="title-container">
+        <h1 class="page-title">Start New Workout</h1>
+    </div>
     <div class="workout-create-container">
+
         <div class="workout-form-container">
             <form method="post" class="workout-create-form">
                 {% csrf_token %}
@@ -17,15 +21,22 @@
                     <br>
                 {% endfor %}
                 <h4>Your exercises:</h4>
-                <div class="available-exercises">
+                <div class="available-exercises-container">
                     {% if not all_exercises %}
                         <p>You have no exercises yet</p>
                     {% else %}
-                        <div>
+                        <ul class="all-exercises-container">
                             {% for exercise in all_exercises %}
-                                {{ exercise.name }}
+                                <li>
+                                    {{ exercise.name }}
+                                    {{ exercise.primary_muscle_group }}
+{#                                    {{ exercise.secondary_muscle_groups }}#}
+                                    {{ exercise.exercise_type }}
+                                    {{ exercise.equipment_needed }}
+                                    {{ exercise.sets }}
+                                </li>
                             {% endfor %}
-                        </div>
+                        </ul>
                     {% endif %}
 
                 </div>
