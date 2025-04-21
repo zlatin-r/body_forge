@@ -20,14 +20,11 @@ class WorkoutCreateView(LoginRequiredMixin, CreateView):
         return context
 
     def form_valid(self, form):
-        # Set the user before saving
         form.instance.user = self.request.user
-        # Save the workout
         response = super().form_valid(form)
-        # Add selected exercises
         exercise_ids = self.request.POST.getlist('exercises')
+
         if exercise_ids:
-            # Ensure only the user's exercises are added (security)
             exercises = Exercise.objects.filter(id__in=exercise_ids, user=self.request.user)
             self.object.exercises.set(exercises)
         return response
