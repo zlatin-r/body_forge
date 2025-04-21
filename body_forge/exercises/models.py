@@ -22,13 +22,12 @@ class Exercise(models.Model):
     )
     primary_muscle_group = models.ForeignKey(
         to=MuscleGroup,
-        on_delete=models.CASCADE,
+        on_delete=models.SET_NULL,
         null=True,
         related_name='primary_exercises'
     )
     secondary_muscle_groups = models.ManyToManyField(
         to=MuscleGroup,
-        on_delete=models.CASCADE,
         blank=True,
         related_name='secondary_exercises'
     )
