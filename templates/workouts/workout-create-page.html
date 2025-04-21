@@ -7,9 +7,8 @@
         <h1 class="page-title">Start New Workout</h1>
     </div>
     <div class="workout-create-container">
-
         <div class="workout-form-container">
-            <form method="post" class="workout-create-form">
+            <form method="post" class="workout-create-form" id="workout-form">
                 {% csrf_token %}
 
                 {% for field in form %}
@@ -20,6 +19,7 @@
                     </div>
                     <br>
                 {% endfor %}
+
                 <h4>Your exercises:</h4>
                 <div class="available-exercises-container">
                     {% if not all_exercises %}
@@ -27,10 +27,10 @@
                     {% else %}
                         <ul class="all-exercises-container">
                             {% for exercise in all_exercises %}
-                                <li>
+                                <li class="exercise-item" data-exercise-id="{{ exercise.id }}"
+                                    onclick="addExercise(this, {{ exercise.id }}, '{{ exercise.name }}')">
                                     {{ exercise.name }}
                                     {{ exercise.primary_muscle_group }}
-{#                                    {{ exercise.secondary_muscle_groups }}#}
                                     {{ exercise.exercise_type }}
                                     {{ exercise.equipment_needed }}
                                     {{ exercise.sets }}
@@ -38,17 +38,25 @@
                             {% endfor %}
                         </ul>
                     {% endif %}
-
                 </div>
 
                 <a href="{% url 'create-exercise' %}" class="new-exercise-btn">Add New Exercise</a>
+
+                <h4>Selected Exercises:</h4>
+                <div class="selected-exercises-container">
+                    <ul class="selected-exercises" id="selected-exercises">
+                        <!-- Selected exercises will be added here dynamically -->
+                    </ul>
+                </div>
 
                 <div class="btn-box">
                     <button class="workout-save-btn" type="submit">Create</button>
                     <a href="javascript:history.back()" class="workout-create-back-btn">Back</a>
                 </div>
-
             </form>
         </div>
     </div>
+
+    <script src="{% static "/js/workouts/workout-create-page.js" %}"></script>
+
 {% endblock %}

@@ -50,6 +50,40 @@
     border-radius: 5px;
 }
 
+.selected-exercises-container {
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+    margin: 20px 0;
+    border-radius: 5px;
+}
+
+.exercise-item {
+    cursor: pointer;
+    padding: 8px;
+    margin: 4px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+.exercise-item:hover {
+    background-color: #f0f0f0;
+}
+.selected-exercises li {
+    padding: 8px;
+    margin: 4px;
+    border: 1px solid #28a745;
+    background-color: #e6f4ea;
+    border-radius: 4px;
+}
+.workout-create-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+.workout-create-container {
+    padding: 20px;
+}
+
 .all-exercises-container {
     display: flex;
     flex-direction: column;
