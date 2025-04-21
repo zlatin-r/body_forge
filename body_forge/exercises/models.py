@@ -22,12 +22,13 @@ class Exercise(models.Model):
     )
     primary_muscle_group = models.ForeignKey(
         to=MuscleGroup,
-        on_delete=models.SET_NULL,
+        on_delete=models.CASCADE,
         null=True,
         related_name='primary_exercises'
     )
     secondary_muscle_groups = models.ManyToManyField(
         to=MuscleGroup,
+        on_delete=models.CASCADE,
         blank=True,
         related_name='secondary_exercises'
     )
@@ -36,13 +37,18 @@ class Exercise(models.Model):
         choices=ExerciseTypes,
         default='STRENGTH'
     )
-    equipment_needed = models.CharField(
-        max_length=100,
-        blank=True
+    sets = models.PositiveIntegerField(
+        default=0
     )
-    sets = models.PositiveIntegerField()
-    repetitions = models.PositiveIntegerField()
-    rest_time = models.PositiveIntegerField()
+    weight = models.PositiveIntegerField(
+        default=0
+    )
+    repetitions = models.PositiveIntegerField(
+        default=0
+    )
+    rest_time = models.FloatField(
+        default=0
+    )
 
     def __str__(self):
         return self.name

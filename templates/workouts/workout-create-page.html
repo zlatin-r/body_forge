@@ -30,9 +30,8 @@
                             <tr>
                                 <th scope="col">Name</th>
                                 <th scope="col">Primary Muscle Group</th>
+                                <th scope="col">Secondary Muscle Group</th>
                                 <th scope="col">Exercise Type</th>
-                                <th scope="col">Equipment Needed</th>
-                                <th scope="col">Sets</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -43,25 +42,12 @@
                                     role="row">
                                     <td>{{ exercise.name }}</td>
                                     <td>{{ exercise.primary_muscle_group }}</td>
+                                    <td>{{ exercise.secondary_muscle_groups }}</td>
                                     <td>{{ exercise.exercise_type }}</td>
-                                    <td>{{ exercise.equipment_needed }}</td>
-                                    <td>{{ exercise.sets }}</td>
                                 </tr>
                             {% endfor %}
                             </tbody>
                         </table>
-{#                        <ul class="all-exercises-container">#}
-{#                            {% for exercise in all_exercises %}#}
-{#                                <li class="exercise-item" data-exercise-id="{{ exercise.id }}"#}
-{#                                    onclick="addExercise(this, {{ exercise.id }}, '{{ exercise.name }}')">#}
-{#                                    {{ exercise.name }}#}
-{#                                    {{ exercise.primary_muscle_group }}#}
-{#                                    {{ exercise.exercise_type }}#}
-{#                                    {{ exercise.equipment_needed }}#}
-{#                                    {{ exercise.sets }}#}
-{#                                </li>#}
-{#                            {% endfor %}#}
-{#                        </ul>#}
                     {% endif %}
                 </div>
 

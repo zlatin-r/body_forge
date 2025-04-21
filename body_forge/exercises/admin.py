@@ -11,5 +11,4 @@ class ExerciseAdmin(admin.ModelAdmin):
         "description",
         "primary_muscle_group",
         "exercise_type",
-        "equipment_needed"
     )
