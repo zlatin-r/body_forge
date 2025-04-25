@@ -13,16 +13,22 @@
                         {% for workout in all_workouts %}
 
                             <div class="workout-card">
-                                <p>{{ workout.date }}</p>
-                                {% if workout.exercises.exists %}
-                                    <ul>
-                                        {% for exercise in workout.exercises.all %}
-                                            <li>{{ exercise.name }}{{ exercise.exercise_type }}</li>
-                                        {% endfor %}
-                                    </ul>
-                                {% endif %}
-                            </div>
+                                <h2>{{ workout.date }}</h2>
+                                <h3>{{ workout.workout_type }}</h3>
 
+                                <div class="card-contend">
+                                    <h3>Exercises:</h3>
+
+                                    {% if workout.exercises.exists %}
+                                        <ul>
+                                            {% for exercise in workout.exercises.all %}
+                                                <li>{{ exercise.name }}</li>
+                                            {% endfor %}
+                                        </ul>
+                                    {% endif %}
+
+                                </div>
+                            </div>
                         {% endfor %}
                     </div>
                 {% endif %}

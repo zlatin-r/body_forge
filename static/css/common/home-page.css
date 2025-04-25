@@ -55,12 +55,32 @@
 
 .workout-card {
     display: flex;
+    gap: 15px;
     flex-direction: column;
     align-items: center;
     background-color: #f1f0cc;
-    padding: 30px 20px;
+    padding: 30px 30px;
     box-sizing: border-box;
     width: 100%;
     border-radius: 5px;
     height: 500px;
+}
+
+.workout-card:hover {
+    background-color: #edecd7;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-contend {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.card-contend ul {
+        display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
