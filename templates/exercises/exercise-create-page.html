@@ -9,15 +9,15 @@
             <form method="post" action="" class="exercise-create-form">
                 {% csrf_token %}
 
-                <!-- Custom Field: Name -->
+                <p class="error">{{ form.non_field_errors }}</p>
+
                 <div class="label-input">
-                    <label for="{{ form.name.id_for_label }}">Name</label>
+                    <label for="{{ form.name.id_for_label }}">Exercise Name</label>
                     {{ form.name }}
                     <p class="error">{{ form.name.errors }}</p>
                 </div>
                 <br>
 
-                <!-- Custom Field: Description (example) -->
                 <div class="label-input">
                     <label for="{{ form.description.id_for_label }}">Description</label>
                     {{ form.description }}
@@ -25,16 +25,57 @@
                 </div>
                 <br>
 
-                {#                {% for field in form %}#}
-                {#                    <p class="error">{{ field.errors }}</p>#}
-                {#                    <div class="label-input">#}
-                {#                        <label>{{ field.label }}</label>#}
-                {#                        {{ field }}#}
-                {#                    </div>#}
-                {#                    <br>#}
-                {#                {% endfor %}#}
+                <div class="label-input">
+                    <label for="{{ form.primary_muscle_group.id_for_label }}">Primary Muscle Group</label>
+                    {{ form.primary_muscle_group }}
+                    <p class="error">{{ form.primary_muscle_group.errors }}</p>
+                </div>
+                <br>
+
+                <div class="label-input">
+                    <label for="{{ form.secondary_muscle_groups.id_for_label }}">Secondary Muscle Groups</label>
+                    {{ form.secondary_muscle_groups }}
+                    <p class="error">{{ form.secondary_muscle_groups.errors }}</p>
+                </div>
+                <br>
 
                 <a href="{% url 'create-muscle-group' %}" class="new-muscle-group-btn">Add Muscle Groups</a>
+
+                <div class="label-input">
+                    <label for="{{ form.exercise_type.id_for_label }}">Exercise Type</label>
+                    {{ form.exercise_type }}
+                    <p class="error">{{ form.exercise_type.errors }}</p>
+                </div>
+                <br>
+
+                <div class="label-input">
+                    <label for="{{ form.sets.id_for_label }}">Sets</label>
+                    {{ form.sets }}
+                    <p class="error">{{ form.sets.errors }}</p>
+                </div>
+                <br>
+
+                <div class="label-input">
+                    <label for="{{ form.weight.id_for_label }}">Weight</label>
+                    {{ form.weight }}
+                    <p class="error">{{ form.weight.errors }}</p>
+                </div>
+                <br>
+
+                <div class="label-input">
+                    <label for="{{ form.repetitions.id_for_label }}">Repetitions</label>
+                    {{ form.repetitions }}
+                    <p class="error">{{ form.repetitions.errors }}</p>
+                </div>
+                <br>
+
+                <div class="label-input">
+                    <label for="{{ form.rest_time.id_for_label }}">Rest Time</label>
+                    {{ form.rest_time }}
+                    <p class="error">{{ form.rest_time.errors }}</p>
+                </div>
+                <br>
+
 
                 <div class="btn-box">
                     <button class="exercise-save-btn" type="submit">Create</button>
