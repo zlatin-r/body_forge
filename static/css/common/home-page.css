@@ -4,7 +4,7 @@
     gap: 15px;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    min-height: calc(100vh - 152px);
     padding: 2rem;
     box-sizing: border-box;
     background-color: #d5bf86;
@@ -54,22 +54,18 @@
 }
 
 .workout-card {
-    display: flex;
-    gap: 15px;
-    flex-direction: column;
-    align-items: center;
-    background-color: #f1f0cc;
-    padding: 30px 30px;
-    box-sizing: border-box;
-    width: 100%;
-    border-radius: 5px;
-    height: 500px;
+    background-color: #fffce8;
+    border: 1px solid #e0d7b3;
+    border-radius: 12px;
+    padding: 1.5rem;
+    min-height: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .workout-card:hover {
-    background-color: #edecd7;
-    transform: translateY(-2px);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transform: translateY(-4px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
 .card-contend {
@@ -80,7 +76,7 @@
 }
 
 .card-contend ul {
-        display: flex;
+    display: flex;
     flex-direction: column;
     gap: 5px;
 }

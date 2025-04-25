@@ -1,0 +1,42 @@
+{% extends 'common/base.html' %}
+{% load static %}
+{% block title %}Workout Details{% endblock %}
+
+{% block content %}
+    <div class="wo-details-container">
+        <h1>Workout Details</h1>
+        <div class="wo-details-card">
+            <h2>{{ workout.date }}</h2>
+            <h3>Workout Type: {{ workout.workout_type }}</h3>
+
+            <div class="details-card-contend">
+                <h3>Exercises:</h3>
+                <table class="exercises-table">
+                    <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Primary Muscle Group</th>
+                        <th scope="col">Secondary Muscle Group</th>
+                        <th scope="col">Exercise Type</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for exercise in workout.exercises.all %}
+                        <tr class="exercise-item"
+                            data-exercise-id="{{ exercise.id }}"
+                            onclick="addExercise(this, {{ exercise.id }}, '{{ exercise.name|escapejs }}')"
+                            role="row">
+                            <td>{{ exercise.name }}</td>
+                            <td>{{ exercise.primary_muscle_group }}</td>
+                            <td>{{ exercise.secondary_muscle_groups }}</td>
+                            <td>{{ exercise.exercise_type }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <a href="javascript:history.back()" class="workout-create-back-btn">Back</a>
+    </div>
+{% endblock %}

@@ -12,7 +12,7 @@
                     <div class="workout-cards-container">
                         {% for workout in all_workouts %}
 
-                            <div class="workout-card">
+                            <div class="workout-card" data-workout-id="{{ workout.id }}">
                                 <h2>{{ workout.date }}</h2>
                                 <h3>{{ workout.workout_type }}</h3>
 
@@ -41,5 +41,7 @@
 
         <a href="{% url 'create-workout' %}" class="workout-create-btn">Start New Workout</a>
     </div>
+
+    <script src="{% static "/js/common/home-page.js" %}"></script>
 
 {% endblock %}

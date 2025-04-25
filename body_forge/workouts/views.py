@@ -1,7 +1,7 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
-from django.views.generic import CreateView
+from django.views.generic import CreateView, DetailView
 
 from body_forge.exercises.models import MuscleGroup, Exercise
 from body_forge.workouts.forms import WorkoutCreateForm
@@ -28,3 +28,10 @@ class WorkoutCreateView(LoginRequiredMixin, CreateView):
             exercises = Exercise.objects.filter(id__in=exercise_ids, user=self.request.user)
             self.object.exercises.set(exercises)
         return response
+
+
+class WorkoutDetailView(DetailView):
+    model = Workout
+    template_name = 'workouts/workout-details-page.html'
+    context_object_name = 'workout'
+    pk_url_kwarg = 'workout_id'
