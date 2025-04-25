@@ -1,7 +1,7 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, DetailView
+from django.views.generic import CreateView, DetailView, DeleteView
 
 from body_forge.exercises.models import MuscleGroup, Exercise
 from body_forge.workouts.forms import WorkoutCreateForm
@@ -30,8 +30,13 @@ class WorkoutCreateView(LoginRequiredMixin, CreateView):
         return response
 
 
-class WorkoutDetailView(DetailView):
+class WorkoutDetailView(LoginRequiredMixin, DetailView):
     model = Workout
     template_name = 'workouts/workout-details-page.html'
     context_object_name = 'workout'
     pk_url_kwarg = 'workout_id'
+
+
+class WorkoutDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = Workout
+    template_name = 'workouts/workout-delete-page.html'

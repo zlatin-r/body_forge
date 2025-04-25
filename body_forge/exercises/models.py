@@ -13,6 +13,12 @@ class Exercise(models.Model):
         on_delete=models.CASCADE,
         related_name="exercise"
     )
+    slug = models.SlugField(
+        null=True,
+        blank=True,
+        unique=True,
+        editable=False,
+    )
     name = models.CharField(
         max_length=100,
         unique=True
