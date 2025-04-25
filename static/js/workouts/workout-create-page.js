@@ -25,16 +25,13 @@ function addExercise(element, exerciseId, exerciseName) {
 }
 
 function removeExercise(element, exerciseId) {
-    // Remove the list item
     element.parentElement.remove();
 
-    // Remove the corresponding hidden input
     const input = document.querySelector(`#workout-form input[name="exercises"][value="${exerciseId}"]`);
     if (input) {
         input.remove();
     }
 
-    // Re-enable the exercise in the available list
     const availableItem = document.querySelector(`.exercise-item[data-exercise-id="${exerciseId}"]`);
     if (availableItem) {
         availableItem.style.opacity = '1';
