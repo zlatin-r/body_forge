@@ -9,14 +9,30 @@
             <form method="post" action="" class="exercise-create-form">
                 {% csrf_token %}
 
-                {% for field in form %}
-                    <p class="error">{{ field.errors }}</p>
-                    <div class="label-input">
-                        <label>{{ field.label }}</label>
-                        {{ field }}
-                    </div>
-                    <br>
-                {% endfor %}
+                <!-- Custom Field: Name -->
+                <div class="label-input">
+                    <label for="{{ form.name.id_for_label }}">Name</label>
+                    {{ form.name }}
+                    <p class="error">{{ form.name.errors }}</p>
+                </div>
+                <br>
+
+                <!-- Custom Field: Description (example) -->
+                <div class="label-input">
+                    <label for="{{ form.description.id_for_label }}">Description</label>
+                    {{ form.description }}
+                    <p class="error">{{ form.description.errors }}</p>
+                </div>
+                <br>
+
+                {#                {% for field in form %}#}
+                {#                    <p class="error">{{ field.errors }}</p>#}
+                {#                    <div class="label-input">#}
+                {#                        <label>{{ field.label }}</label>#}
+                {#                        {{ field }}#}
+                {#                    </div>#}
+                {#                    <br>#}
+                {#                {% endfor %}#}
 
                 <a href="{% url 'create-muscle-group' %}" class="new-muscle-group-btn">Add Muscle Groups</a>
 
