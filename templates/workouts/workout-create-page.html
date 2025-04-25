@@ -22,9 +22,7 @@
 
                 <h4>Your exercises:</h4>
                 <div class="available-exercises-container">
-                    {% if not all_exercises %}
-                        <p>You have no exercises yet</p>
-                    {% else %}
+                    {% if all_exercises %}
                         <table class="exercises-table">
                             <thead>
                             <tr>
@@ -48,6 +46,8 @@
                             {% endfor %}
                             </tbody>
                         </table>
+                    {% else %}
+                        <p>You have no exercises yet</p>
                     {% endif %}
                 </div>
 
