@@ -9,5 +9,6 @@
 @import "accounts/profile-delete-page.css";
 @import "workouts/workout-create-page.css";
 @import "workouts/workout-details-page.css";
+@import "workouts/workout-delete-page.css";
 @import "exercises/exercise-create-page.css";
 @import "muscle_groups/muscle-group-create-page.css";

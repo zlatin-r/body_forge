@@ -10,37 +10,40 @@
             <h3>Workout Type: {{ workout.workout_type }}</h3>
 
             <div class="details-card-contend">
-            {% if workout.exercises.exists %}
-                <h3>Exercises:</h3>
-                <table class="exercises-table">
-                    <thead>
-                    <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Primary Muscle Group</th>
-                        <th scope="col">Secondary Muscle Group</th>
-                        <th scope="col">Exercise Type</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {% for exercise in workout.exercises.all %}
-                        <tr class="exercise-item"
-                            data-exercise-id="{{ exercise.id }}"
-                            onclick="addExercise(this, {{ exercise.id }}, '{{ exercise.name|escapejs }}')"
-                            role="row">
-                            <td>{{ exercise.name }}</td>
-                            <td>{{ exercise.primary_muscle_group }}</td>
-                            <td>{{ exercise.secondary_muscle_groups }}</td>
-                            <td>{{ exercise.exercise_type }}</td>
+                {% if workout.exercises.exists %}
+                    <h3>Exercises:</h3>
+                    <table class="exercises-table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Primary Muscle Group</th>
+                            <th scope="col">Secondary Muscle Group</th>
+                            <th scope="col">Exercise Type</th>
                         </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
-            {% else %}
-                <h4>You didn't add any exercises</h4>
-            {% endif %}
+                        </thead>
+                        <tbody>
+                        {% for exercise in workout.exercises.all %}
+                            <tr class="exercise-item"
+                                data-exercise-id="{{ exercise.id }}"
+                                onclick="addExercise(this, {{ exercise.id }}, '{{ exercise.name|escapejs }}')"
+                                role="row">
+                                <td>{{ exercise.name }}</td>
+                                <td>{{ exercise.primary_muscle_group }}</td>
+                                <td>{{ exercise.secondary_muscle_groups }}</td>
+                                <td>{{ exercise.exercise_type }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    <h4>You didn't add any exercises</h4>
+                {% endif %}
             </div>
         </div>
 
-        <a href="javascript:history.back()" class="workout-create-back-btn">Back</a>
+        <div class="btn-box">
+            <a href="javascript:history.back()" class="workout-create-back-btn">Back</a>
+            <a href="" class="workout-delete-btn">Delete</a>
+        </div>
     </div>
 {% endblock %}
