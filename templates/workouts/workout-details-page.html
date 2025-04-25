@@ -10,6 +10,7 @@
             <h3>Workout Type: {{ workout.workout_type }}</h3>
 
             <div class="details-card-contend">
+            {% if workout.exercises.exists %}
                 <h3>Exercises:</h3>
                 <table class="exercises-table">
                     <thead>
@@ -34,6 +35,9 @@
                     {% endfor %}
                     </tbody>
                 </table>
+            {% else %}
+                <h4>You didn't add any exercises</h4>
+            {% endif %}
             </div>
         </div>
 
