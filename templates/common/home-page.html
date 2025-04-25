@@ -7,24 +7,28 @@
     <div class="main-container">
 
         {% if user.is_authenticated %}
+            <h1>Your Resend Workouts:</h1>
             <div class="auth-container">
                 {% if all_workouts %}
                     <div class="workout-cards-container">
                         {% for workout in all_workouts %}
 
                             <div class="workout-card" data-workout-id="{{ workout.id }}">
-                                <h2>{{ workout.date }}</h2>
-                                <h3>{{ workout.workout_type }}</h3>
+                                <h2 class="workout-date">{{ workout.date }}</h2>
+                                <h3 class="workout-type">{{ workout.workout_type }}</h3>
 
                                 <div class="card-contend">
-                                    <h3>Exercises:</h3>
-
                                     {% if workout.exercises.exists %}
-                                        <ul>
-                                            {% for exercise in workout.exercises.all %}
-                                                <li>{{ exercise.name }}</li>
-                                            {% endfor %}
-                                        </ul>
+                                        <div class="exercise-list">
+                                            <h4>Exercises:</h4>
+                                            <ul>
+                                                {% for exercise in workout.exercises.all %}
+                                                    <li>{{ exercise.name }}</li>
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+                                    {% else %}
+                                        <h4>No exercises added</h4>
                                     {% endif %}
 
                                 </div>

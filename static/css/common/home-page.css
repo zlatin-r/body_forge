@@ -5,6 +5,7 @@
     justify-content: center;
     align-items: center;
     min-height: calc(100vh - 152px);
+    width: 100%;
     padding: 2rem;
     box-sizing: border-box;
     background-color: #d5bf86;
@@ -14,6 +15,7 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    width: 70%;
 }
 
 .workout-create-btn {
@@ -46,6 +48,7 @@
 
 .workout-cards-container {
     display: flex;
+    justify-content: center;
     gap: 25px;
     align-items: center;
     background-color: #d5bf86;
@@ -79,4 +82,32 @@
     display: flex;
     flex-direction: column;
     gap: 5px;
+}
+
+.workout-date {
+    margin: 0;
+    font-size: 1.3rem;
+    color: #6b4f2c;
+}
+
+.workout-type {
+    margin: 0.5rem 0 1rem;
+    font-size: 1.1rem;
+    color: #8a663f;
+}
+
+.exercise-list h4 {
+    margin-bottom: 0.5rem;
+    color: #3d3d3d;
+}
+
+.exercise-list ul {
+    padding-left: 1.2rem;
+    margin: 0;
+    list-style-type: disc;
+    color: #444;
+}
+
+.exercise-list li {
+    margin-bottom: 4px;
 }
