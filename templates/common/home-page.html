@@ -5,25 +5,26 @@
 
 {% block content %}
     <div class="main-container">
-        <a href="{% url 'create-workout' %}" class="workout-create-btn">Start New Workout</a>
 
         {% if user.is_authenticated %}
             <div class="auth-container">
                 {% if all_workouts %}
-                    <p>User Is Authenticated</p>
+                    <div class="workout-cards-container">
+                        {% for workout in all_workouts %}
 
-                    {% for workout in all_workouts %}
-                        <p>{{ workout.date }}</p>
+                            <div class="workout-card">
+                                <p>{{ workout.date }}</p>
+                                {% if workout.exercises.exists %}
+                                    <ul>
+                                        {% for exercise in workout.exercises.all %}
+                                            <li>{{ exercise.name }}{{ exercise.exercise_type }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                {% endif %}
+                            </div>
 
-                        {% if workout.exercises.exists %}
-                            <ul>
-                                {% for exercise in workout.exercises.all %}
-                                    <li>{{ exercise.name }}{{ exercise.exercise_type }}</li>
-                                {% endfor %}
-                            </ul>
-
-                        {% endif %}
-                    {% endfor %}
+                        {% endfor %}
+                    </div>
                 {% endif %}
             </div>
         {% else %}
@@ -31,6 +32,8 @@
                 <p>User Is Not Authenticated</p>
             </div>
         {% endif %}
+
+        <a href="{% url 'create-workout' %}" class="workout-create-btn">Start New Workout</a>
     </div>
 
 {% endblock %}
