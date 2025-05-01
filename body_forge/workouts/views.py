@@ -1,4 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DetailView, DeleteView
@@ -38,15 +39,10 @@ class WorkoutDetailView(LoginRequiredMixin, DetailView):
 
 
 class WorkoutDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
-    # model = Workout  # Remove this if you override get_queryset
+    model = Workout
     template_name = 'workouts/workout-delete-page.html'
-    success_url = reverse_lazy("home-page")
-    pk_url_kwarg = 'pk'
-
-    def get_queryset(self):
-        return Workout.objects.filter(user=self.request.user)  # Only allow deleting user's own workouts
+    success_url = reverse_lazy('home-page')
 
     def test_func(self):
-        # get_object() will now use the filtered queryset from get_queryset()
-        workout = self.get_object()
-        return workout.user == self.request.user
+        workout = get_object_or_404(Workout, pk=self.kwargs['pk'])
+        return self.request.user == workout.user
