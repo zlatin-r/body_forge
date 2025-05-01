@@ -30,12 +30,12 @@ class Exercise(models.Model):
         to=MuscleGroup,
         on_delete=models.SET_NULL,
         null=True,
-        related_name='primary_exercises'
+        related_name='primary_muscle_groups'
     )
     secondary_muscle_groups = models.ManyToManyField(
         to=MuscleGroup,
         blank=True,
-        related_name='secondary_exercises'
+        related_name='secondary_muscle_groups'
     )
     exercise_type = models.CharField(
         max_length=11,

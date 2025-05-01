@@ -12,6 +12,47 @@
     <div class="workout-create-container">
         <div class="workout-form-container">
             <form method="post" class="workout-create-form">
+                {% csrf_token %}
+
+                <p class="error">{{ form.non_field_errors }}</p>
+
+                <div class="label-input">
+                    <label for="{{ form.workout_type.id_for_label }}">Exercise Name</label>
+                    {{ form.workout_type }}
+                    <p class="error">{{ form.workout_type.errors }}</p>
+                </div>
+
+                <h4>Your Exercises:</h4>
+
+                <div class="available-exercises-container">
+                    {% if all_exercises %}
+                        <table class="exercises-table">
+                            <thead>
+                            <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">Primary Muscle Group</th>
+                                <th scope="col">Secondary Muscle Group</th>
+                                <th scope="col">Exercise Type</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for exercise in all_exercises %}
+                                <tr class="exercise-item" data-exercise-id="{{ exercise.id }}" role="row">
+                                    <td>{{ exercise.name }}</td>
+                                    <td>{{ exercise.primary_muscle_group }}</td>
+                                    {% if exercise.secondary_muscle_groups.exists %}
+                                        <td>{{ exercise.secondary_muscle_groups }}</td>
+                                    {% else %}
+                                        <td>None</td>
+                                    {% endif %}
+                                    <td>{{ exercise.exercise_type }}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    {% endif %}
+                </div>
+
 
             </form>
         </div>

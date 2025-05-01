@@ -37,13 +37,13 @@
     margin: 1.5rem 0;
 }
 
-/*.workout-create-form {*/
-/*    width: 100%;*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*    align-items: center;*/
-/*    gap: 1rem;*/
-/*}*/
+.workout-create-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
 
 /*.label-input {*/
 /*    width: 100%;*/
@@ -74,46 +74,46 @@
 /*    min-height: 100px;*/
 /*}*/
 
-/*.error {*/
-/*    color: #d32f2f;*/
-/*    font-size: 0.9rem;*/
-/*    margin: 0;*/
-/*}*/
+.error {
+    color: #d32f2f;
+    font-size: 0.9rem;
+    margin: 0;
+}
 
-/*.exercises-table {*/
-/*    width: 100%;*/
-/*    border-collapse: collapse;*/
-/*    background-color: #fff;*/
-/*    border-radius: 5px;*/
-/*    overflow: hidden;*/
-/*}*/
+.exercises-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+}
 
-/*.exercises-table th,*/
-/*.exercises-table td {*/
-/*    padding: 0.75rem;*/
-/*    text-align: left;*/
-/*    border-bottom: 1px solid #ddd;*/
-/*}*/
+.exercises-table th,
+.exercises-table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
 
-/*.exercises-table th {*/
-/*    background-color: #f0f0f0;*/
-/*    font-weight: 500;*/
-/*    color: #333;*/
-/*}*/
+.exercises-table th {
+    background-color: #f0f0f0;
+    font-weight: 500;
+    color: #333;
+}
 
-/*.exercises-table tr.exercise-item {*/
-/*    cursor: pointer;*/
-/*    transition: background-color 0.2s ease, opacity 0.2s ease;*/
-/*}*/
+.exercises-table tr.exercise-item {
+    cursor: pointer;
+    transition: background-color 0.2s ease, opacity 0.2s ease;
+}
 
-/*.exercises-table tr.exercise-item:hover {*/
-/*    background-color: #f0f0f0;*/
-/*}*/
+.exercises-table tr.exercise-item:hover {
+    background-color: #f0f0f0;
+}
 
-/*.exercises-table tr.exercise-item:focus {*/
-/*    outline: 2px solid #4ac1f7;*/
-/*    outline-offset: 2px;*/
-/*}*/
+.exercises-table tr.exercise-item:focus {
+    outline: 2px solid #4ac1f7;
+    outline-offset: 2px;
+}
 
 /*.available-exercises-container {*/
 /*    background-color: #fff;*/
