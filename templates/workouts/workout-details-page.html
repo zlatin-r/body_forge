@@ -43,7 +43,7 @@
 
         <div class="btn-box">
             <a href="javascript:history.back()" class="workout-create-back-btn">Back</a>
-            <a href="" class="workout-delete-btn">Delete</a>
+            <a href="{% url 'delete-workout' workout.pk %}" class="workout-delete-btn">Delete</a>
         </div>
     </div>
 {% endblock %}

@@ -10,3 +10,10 @@ class WorkoutCreateForm(forms.ModelForm):
         widgets = {
             'notes': forms.Textarea(attrs={'rows': 4, 'cols': 50}),
         }
+
+class WorkoutDeleteForm(forms.Form):  # Optional: Create a confirmation form
+    confirm_delete = forms.BooleanField(
+        label='Confirm Deletion',
+        required=True,
+        widget=forms.HiddenInput(attrs={'value': True})  # Add a hidden confirmation
+    )

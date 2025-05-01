@@ -38,5 +38,15 @@ class WorkoutDetailView(LoginRequiredMixin, DetailView):
 
 
 class WorkoutDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
-    model = Workout
+    # model = Workout  # Remove this if you override get_queryset
     template_name = 'workouts/workout-delete-page.html'
+    success_url = reverse_lazy("home-page")
+    pk_url_kwarg = 'pk'
+
+    def get_queryset(self):
+        return Workout.objects.filter(user=self.request.user)  # Only allow deleting user's own workouts
+
+    def test_func(self):
+        # get_object() will now use the filtered queryset from get_queryset()
+        workout = self.get_object()
+        return workout.user == self.request.user
