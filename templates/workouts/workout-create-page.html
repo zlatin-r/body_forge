@@ -4,67 +4,79 @@
 
 {% block content %}
     <div class="title-container">
-        <h1 class="page-title">Start New Workout</h1>
+        <h1 class="page-title">
+            Start New Workout
+        </h1>
     </div>
+
     <div class="workout-create-container">
         <div class="workout-form-container">
-            <form method="post" class="workout-create-form" id="workout-form">
-                {% csrf_token %}
+            <form method="post" class="workout-create-form">
 
-                {% for field in form %}
-                    <p class="error">{{ field.errors }}</p>
-                    <div class="label-input">
-                        <label>{{ field.label }}</label>
-                        {{ field }}
-                    </div>
-                    <br>
-                {% endfor %}
-
-                <h4>Your exercises:</h4>
-                <div class="available-exercises-container">
-                    {% if all_exercises %}
-                        <table class="exercises-table">
-                            <thead>
-                            <tr>
-                                <th scope="col">Name</th>
-                                <th scope="col">Primary Muscle Group</th>
-                                <th scope="col">Secondary Muscle Group</th>
-                                <th scope="col">Exercise Type</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            {% for exercise in all_exercises %}
-                                <tr class="exercise-item"
-                                    data-exercise-id="{{ exercise.id }}"
-                                    onclick="addExercise(this, {{ exercise.id }}, '{{ exercise.name|escapejs }}')"
-                                    role="row">
-                                    <td>{{ exercise.name }}</td>
-                                    <td>{{ exercise.primary_muscle_group }}</td>
-                                    <td>{{ exercise.secondary_muscle_groups }}</td>
-                                    <td>{{ exercise.exercise_type }}</td>
-                                </tr>
-                            {% endfor %}
-                            </tbody>
-                        </table>
-                    {% else %}
-                        <p>You have no exercises yet</p>
-                    {% endif %}
-                </div>
-
-                <a href="{% url 'create-exercise' %}" class="new-exercise-btn">Add New Exercise</a>
-
-                <h4>Selected Exercises:</h4>
-                <div class="selected-exercises-container">
-                    <ul class="selected-exercises" id="selected-exercises"></ul>
-                </div>
-
-                <div class="btn-box">
-                    <button class="workout-save-btn" type="submit">Create</button>
-                    <a href="javascript:history.back()" class="workout-create-back-btn">Back</a>
-                </div>
             </form>
         </div>
     </div>
+
+
+    {#    <div class="workout-create-container">#}
+    {#        <div class="workout-form-container">#}
+    {#            <form method="post" class="workout-create-form" id="workout-form">#}
+    {#                {% csrf_token %}#}
+    {##}
+    {#                {% for field in form %}#}
+    {#                    <p class="error">{{ field.errors }}</p>#}
+    {#                    <div class="label-input">#}
+    {#                        <label>{{ field.label }}</label>#}
+    {#                        {{ field }}#}
+    {#                    </div>#}
+    {#                    <br>#}
+    {#                {% endfor %}#}
+    {##}
+    {#                <h4>Your exercises:</h4>#}
+    {#                <div class="available-exercises-container">#}
+    {#                    {% if all_exercises %}#}
+    {#                        <table class="exercises-table">#}
+    {#                            <thead>#}
+    {#                            <tr>#}
+    {#                                <th scope="col">Name</th>#}
+    {#                                <th scope="col">Primary Muscle Group</th>#}
+    {#                                <th scope="col">Secondary Muscle Group</th>#}
+    {#                                <th scope="col">Exercise Type</th>#}
+    {#                            </tr>#}
+    {#                            </thead>#}
+    {#                            <tbody>#}
+    {#                            {% for exercise in all_exercises %}#}
+    {#                                <tr class="exercise-item"#}
+    {#                                    data-exercise-id="{{ exercise.id }}"#}
+    {#                                    onclick="addExercise(this, {{ exercise.id }}, '{{ exercise.name|escapejs }}')"#}
+    {#                                    role="row">#}
+    {#                                    <td>{{ exercise.name }}</td>#}
+    {#                                    <td>{{ exercise.primary_muscle_group }}</td>#}
+    {#                                    <td>{{ exercise.secondary_muscle_groups }}</td>#}
+    {#                                    <td>{{ exercise.exercise_type }}</td>#}
+    {#                                </tr>#}
+    {#                            {% endfor %}#}
+    {#                            </tbody>#}
+    {#                        </table>#}
+    {#                    {% else %}#}
+    {#                        <p>You have no exercises yet</p>#}
+    {#                    {% endif %}#}
+    {#                </div>#}
+    {##}
+    {#                <a href="{% url 'create-exercise' %}" class="new-exercise-btn">Add New Exercise</a>#}
+    {##}
+    {#                <h4>Selected Exercises:</h4>#}
+    {#                <div class="selected-exercises-container">#}
+    {#                    <ul class="selected-exercises" id="selected-exercises"></ul>#}
+    {#                </div>#}
+    {##}
+    {#                <div class="btn-box">#}
+    {#                    <button class="workout-save-btn" type="submit">Create</button>#}
+    {#                    <a href="javascript:history.back()" class="workout-create-back-btn">Back</a>#}
+    {#                </div>#}
+    {#            </form>#}
+    {#        </div>#}
+    {#    </div>#}
 
     <script src="{% static "/js/workouts/workout-create-page.js" %}"></script>
 
