@@ -38,8 +38,12 @@
 
                             <tbody>
                             {% for exercise in all_exercises %}
-                                <tr class="exercise-item" data-exercise-id="{{ exercise.id }}" role="row">
-                                    <td>{{ exercise.name }}</td>
+                                <tr class="exercise-item" role="row">
+                                    <td>
+                                        <a href="{% url 'start-exercise' exercise.id %}?workout_id={{ workout_id }}">
+                                            {{ exercise.name }}
+                                        </a>
+                                    </td>
                                     <td>{{ exercise.primary_muscle_group }}</td>
                                     <td>
                                         {% if exercise.secondary_muscle_groups.all %}

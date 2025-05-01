@@ -1,6 +1,6 @@
 from django import forms
 
-from body_forge.exercises.models import Exercise
+from body_forge.exercises.models import Exercise, ExerciseLog
 
 
 class ExerciseCreateForm(forms.ModelForm):
@@ -28,3 +28,9 @@ class ExerciseCreateForm(forms.ModelForm):
             'repetitions': 'Repetitions',
             'rest_time': 'Rest Time',
         }
+
+
+class ExerciseLogForm(forms.ModelForm):
+    class Meta:
+        model = ExerciseLog
+        fields = ['sets', 'reps', 'weight']  # Customize field names

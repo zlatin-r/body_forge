@@ -3,6 +3,7 @@ from django.db import models
 
 from body_forge.exercises.exercise_type_choices import ExerciseTypes
 from body_forge.muscle_groups.models import MuscleGroup
+from body_forge.workouts.models import Workout
 
 UserModel = get_user_model()
 
@@ -57,3 +58,18 @@ class Exercise(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class ExerciseLog(models.Model):
+    workout = models.ForeignKey(
+        to=Workout,
+        on_delete=models.CASCADE,
+        related_name='logs'
+    )
+    exercise = models.ForeignKey(
+        to=Exercise,
+        on_delete=models.CASCADE
+    )
+    sets = models.PositiveIntegerField()
+    reps = models.PositiveIntegerField()
+    weight = models.FloatField()
