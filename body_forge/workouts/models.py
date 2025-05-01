@@ -1,7 +1,6 @@
 from django.contrib.auth import get_user_model
 from django.db import models
 
-from body_forge.exercises.models import Exercise, MuscleGroup
 from body_forge.workouts.workout_type_choices import WorkoutTypes
 
 UserModel = get_user_model()
@@ -30,7 +29,7 @@ class Workout(models.Model):
         blank=True
     )
     exercises = models.ManyToManyField(
-        to=Exercise,
+        to='exercises.Exercise',
         blank=True
     )
 

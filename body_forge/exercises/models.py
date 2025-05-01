@@ -2,8 +2,6 @@ from django.contrib.auth import get_user_model
 from django.db import models
 
 from body_forge.exercises.exercise_type_choices import ExerciseTypes
-from body_forge.muscle_groups.models import MuscleGroup
-from body_forge.workouts.models import Workout
 
 UserModel = get_user_model()
 
@@ -28,13 +26,13 @@ class Exercise(models.Model):
         blank=True
     )
     primary_muscle_group = models.ForeignKey(
-        to=MuscleGroup,
+        to='muscle_groups.MuscleGroup',
         on_delete=models.SET_NULL,
         null=True,
         related_name='primary_muscle_groups'
     )
     secondary_muscle_groups = models.ManyToManyField(
-        to=MuscleGroup,
+        to='muscle_groups.MuscleGroup',
         blank=True,
         related_name='secondary_muscle_groups'
     )
@@ -62,12 +60,12 @@ class Exercise(models.Model):
 
 class ExerciseLog(models.Model):
     workout = models.ForeignKey(
-        to=Workout,
+        to='workouts.Workout',
         on_delete=models.CASCADE,
         related_name='logs'
     )
     exercise = models.ForeignKey(
-        to=Exercise,
+        to='exercises.Exercise',
         on_delete=models.CASCADE
     )
     sets = models.PositiveIntegerField()

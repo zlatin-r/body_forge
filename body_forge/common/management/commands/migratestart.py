@@ -8,4 +8,3 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         call_command("makemigrations")
         call_command("migrate")
-        call_command("runserver")

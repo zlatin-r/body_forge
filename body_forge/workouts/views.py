@@ -4,7 +4,7 @@ from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DetailView, DeleteView
 
-from body_forge.exercises.models import MuscleGroup, Exercise
+from body_forge.exercises.models import Exercise
 from body_forge.workouts.forms import WorkoutCreateForm
 from body_forge.workouts.models import Workout
 

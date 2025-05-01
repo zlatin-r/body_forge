@@ -1,9 +1,11 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
 
-from body_forge.exercises.forms import ExerciseCreateForm
+from body_forge.exercises.forms import ExerciseCreateForm, ExerciseLogForm
 from body_forge.exercises.models import Exercise
+from body_forge.workouts.models import Workout
 
 
 class ExerciseCreateView(LoginRequiredMixin, CreateView):
@@ -17,10 +19,6 @@ class ExerciseCreateView(LoginRequiredMixin, CreateView):
         form.instance.user = self.request.user  # Set the user here
         return super().form_valid(form)
 
-
-from django.shortcuts import render, get_object_or_404, redirect
-from .models import Exercise, Workout
-from .forms import ExerciseLogForm
 
 def start_exercise(request, exercise_id):
     exercise = get_object_or_404(Exercise, pk=exercise_id)
