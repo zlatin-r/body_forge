@@ -5,6 +5,9 @@ from django.core.management.base import BaseCommand
 
 
 class Command(BaseCommand):
+    help = "Runs the commands 'makemigrations' and 'migrate'"
+
     def handle(self, *args, **options):
         call_command("makemigrations")
         call_command("migrate")
+        call_command("runserver")
