@@ -36,4 +36,3 @@ class Workout(models.Model):
     class Meta:
         ordering = ['-date']
 
-
