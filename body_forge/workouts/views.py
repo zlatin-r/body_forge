@@ -49,3 +49,4 @@ class WorkoutDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 
 
+
