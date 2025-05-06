@@ -48,4 +48,3 @@ class WorkoutDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         return self.request.user == workout.user
 
 
-
