@@ -46,4 +46,3 @@ class WorkoutDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     def test_func(self):
         workout = get_object_or_404(Workout, pk=self.kwargs['pk'])
         return self.request.user == workout.user
-
