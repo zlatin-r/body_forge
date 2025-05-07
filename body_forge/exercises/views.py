@@ -40,3 +40,4 @@ def start_exercise(request, exercise_id):
         'exercise': exercise,
         'form': form,
     })
+
